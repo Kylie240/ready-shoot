@@ -106,19 +106,6 @@ app.get("/inquiries/:userID", async (req,res) => {
     }
 })
 
-app.put("/inquiries/delete", async (req,res) => {
-    try{
-        const user = await UserModel.findById(req.body.userID)
-        //const test = await user.inquiries.find({
-        //    _id: req.body.inquiryID
-        //})
-        res.json(user)
-    } catch (error) {
-        return res.json(error)
-    }
-})
-
-
 mongoose.connect("mongodb+srv://olivkylie:YHScZcW04vbkncXS@cluster.r702jxk.mongodb.net/Cluster?retryWrites=true&w=majority")
 
 app.listen(3000, () => console.log("server started"))
