@@ -16,7 +16,7 @@ export const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post("http://localhost:3000/register",
+            const res = await axios.post("https://ready-shoot.onrender.com/register",
              {username, lastname, firstname, password, email});
              if (res.data.message !== "User registered successfully!") {
                 return alert(res.data.message)

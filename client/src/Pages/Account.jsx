@@ -22,7 +22,7 @@ export const Account = () => {
     useEffect(()=> {
         const fetchSaves = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/saves/${userID}`)
+                const res = await axios.get(`https://ready-shoot.onrender.com/saves/${userID}`)
                 setSavedCameras(res.data.saves);
             } catch (error) {
                 console.log(error);
@@ -31,7 +31,7 @@ export const Account = () => {
 
         const fetchInquiries = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/inquiries/${userID}`)
+                const res = await axios.get(`https://ready-shoot.onrender.com/inquiries/${userID}`)
                 setInquiries(res.data)
             } catch (error) {
                 console.log(error);
@@ -61,7 +61,7 @@ export const Account = () => {
 
     const handleDelete = async (inquiryID) => {
         try {
-            const res = axios.put("http://localhost:3000/inquiries/delete", {inquiryID, userID})
+            const res = axios.put("https://ready-shoot.onrender.com/inquiries/delete", {inquiryID, userID})
             console.log(res);
         } catch (error) {
             console.log(error);

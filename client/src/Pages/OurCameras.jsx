@@ -19,7 +19,7 @@ export const OurCameras = () => {
     useEffect(()=> {
         const fetchSaves = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/saves/${userID}`)
+                const res = await axios.get(`https://ready-shoot.onrender.com/saves/${userID}`)
                 setSavedCameras(res.data.saves);
             } catch (error) {
                 console.log(error);
@@ -33,7 +33,7 @@ export const OurCameras = () => {
             alert("Please login or create an account to start saving.")
         }
         try {
-            const res = await axios.put("http://localhost:3000/saves", {cameraName, userID})
+            const res = await axios.put("https://ready-shoot.onrender.com/saves", {cameraName, userID})
             setSavedCameras(res.data.saves);
         } catch (error) {
             console.log(error);
@@ -42,7 +42,7 @@ export const OurCameras = () => {
 
     const removeCamera = async (cameraName) => {
         try {
-            const res = await axios.put("http://localhost:3000/remove-save", {cameraName, userID})
+            const res = await axios.put("https://ready-shoot.onrender.com/remove-save", {cameraName, userID})
             console.log(res.data);
             setSavedCameras(res.data.saves);
         } catch (error) {
