@@ -21,7 +21,6 @@ export const Login = () => {
             }
             setCookies("access_token", res.data.token)
             window.localStorage.setItem("userID", res.data.userID)
-            alert("Login successful!")
             nav("/")
             window.scrollTo(0,0)
         } catch (error) {
@@ -59,7 +58,7 @@ export const Login = () => {
                         Sign In
                     </button>
                 </form>
-                <div className="flex md:flex-row flex-col mt-6 gap-2 text-lg font-semibold">
+                <div className="flex md:flex-row flex-col items-center mt-6 gap-2 text-lg font-semibold">
                     <p>Don't have an account?</p> 
                     <Link className="text-orange-500" to={'/register'}>Create one now.</Link>
                 </div>

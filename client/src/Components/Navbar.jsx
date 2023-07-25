@@ -18,7 +18,7 @@ export const Navbar = () => {
     }
 
     return (
-        <nav className="flex h-26 z-20 p-7 justify-between items-center w-100%">
+        <nav className="flex h-16 lg:h-26 px-4 z-20 justify-between items-center w-100%">
                 <div className="flex justify-between items-center h-[30px]">
                     <Link to={"/"} className=" flex justify-center items-center">
                         <div className="flex flex-col justify-between items-center">
@@ -54,7 +54,7 @@ export const Navbar = () => {
                     <Link to={"/register"} className="mx-2 py-2 px-3 cursor-pointer bg-orange-600 shadow-orange-700 shadow-sm hover:shadow-md text-white">Regster</Link>
                 }
                 </div>
-                <i onClick={() => setShowMobileMenu(!showMobileMenu)} className="lg:hidden fa-solid fa-bars fa-2x"></i>
+                <i onClick={() => setShowMobileMenu(!showMobileMenu)} className="lg:hidden fa-solid fa-bars fa-xl"></i>
                 {showMobileMenu && <MobileMenu handleLogout={handleLogout} setShowMobileMenu={setShowMobileMenu}/>}
             </nav>
     )

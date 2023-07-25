@@ -5,7 +5,7 @@ const scroll = getScroll()
 
 export const Footer = () => {
     return (
-        <div className="bg-stone-100 px-4 border-t border-t-stone-950 flex flex-col items-center md:flex-row md:justify-around">
+        <div className="bg-stone-100 px-4 border-t pt-8 border-t-stone-950 flex flex-col items-center md:flex-row md:justify-around">
             <div className='p-4 md:w-[30%] flex flex-col justify-start items-start'>
                 <Link to={"/"} onClick={() => window.scrollTo(0,0)} className=" flex justify-center items-center">
                         <div className="flex flex-col justify-between items-center">

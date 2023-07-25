@@ -22,7 +22,6 @@ export const Register = () => {
                 return alert(res.data.message)
             }
             if (res.data.message === "User registered successfully!") {
-                alert(res.data.message)
                 nav("/login") 
             }
             

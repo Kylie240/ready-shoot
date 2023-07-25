@@ -17,13 +17,13 @@ export const Hero = () => {
     }
 
     return (
-        <section className="flex justify-center items-center md:py-16 lg:pt-16 lg:pb-60 bg-orange-600 overflow-clip">
-                <div className="bg-white m-4 p-3 max-w-[900px] flex flex-col justify-center items-center">
+        <section className="flex justify-center items-center py-6 md:py-16 lg:pt-16 lg:pb-60 bg-orange-600 overflow-clip">
+                <div className="bg-white m-4 p-2 max-w-[900px] flex flex-col justify-center items-center">
                     {showConfirmation && <div className="bg-green-300 flex text-grey-500 p-2 gap-2 justify-center items-center">
                         <p className="text-green-900 font-bold">Check your email to confirm your request</p>
                         <i onClick={() => setShowConfirmation(false)} className="fa-sharp fa-solid fa-xmark text-green-900 fa-lg cursor-pointer"></i>
                     </div>}
-                    <div className="p-9 text-center uppercase font-bold md:w-[70%] text-4xl md:text-5xl">
+                    <div className="p-4 md:p-9 text-center uppercase font-bold md:w-[70%] text-3xl md:text-5xl">
                         Rent our gear for your next shoot
                     </div>
                     

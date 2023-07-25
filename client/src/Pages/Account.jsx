@@ -139,7 +139,7 @@ export const Account = () => {
                     ))}
                 </div>
                 :
-                <div className="w-2/5">no submissions yet</div>
+                <div className="text-xl p-8 flex">no inquiries yet</div>
                 }
             </div>
         </div>
