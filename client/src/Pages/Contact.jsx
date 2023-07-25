@@ -12,7 +12,6 @@ export const Contact = () => {
 
     function handleSubmit (e) {
         e.preventDefault();
-        alert('Contact form submitted!')
         setShowConfirmation(true)
         setNameInput("")
         setEmailInput("")

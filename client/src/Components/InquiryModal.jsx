@@ -44,11 +44,11 @@ export const InquiryModal = ({setShowConfirmation, cameraId, startDate, endDate,
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post("http://localhost:3000/form-submission", {inquiry, userID})
+            const res = await axios.post("https://ready-shoot.onrender.com/form-submission", {inquiry, userID})
             console.log(res);
             if (res.data.message = "success"){
-                alert("form submitted successfully! Please check your email for a confirmation of your request.")
                 setShowModal(false)
+                document.body.style.overflow = ""
                 setShowConfirmation(true)
                 window.scrollTo(0,0)
             }
@@ -62,7 +62,7 @@ export const InquiryModal = ({setShowConfirmation, cameraId, startDate, endDate,
     return (
         <div className="absolute w-screen h-screen top-20 flex justify-center items-center">
             <span className="fixed w-screen h-screen top-0 flex justify-center items-center bg-gray-500 z-[99] opacity-80"></span>
-            <form onSubmit={(e) => handleSubmit(e)} className="inquiry-modal fixed top-8 lg:top-12 z-[100] bg-white h-[90vh] max-w-[760px] overflow-y-scroll">
+            <form onSubmit={(e) => handleSubmit(e)} className="inquiry-modal fixed top-8 lg:top-12 z-[100] bg-white h-[80vh] max-w-[760px] overflow-y-scroll">
                 <div className="border-b border-stone-500">
                     <div className="">
                         <div className="flex p-2 bg-orange-600 justify-between items-center">
