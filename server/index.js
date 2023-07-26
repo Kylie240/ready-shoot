@@ -55,7 +55,7 @@ app.post("/login", async (req,res) => {
         if (!checkPassword){
             return res.json({message: "Email or password is incorrect"})
         }
-        const token = jwt.sign({id: user._id}, "secret")
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET)
         res.json({token, userID: user._id, username: user.username})
     } catch {
         return res.json({message: "Error logging in. Please try again."})
