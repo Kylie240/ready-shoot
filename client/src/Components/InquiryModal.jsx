@@ -2,9 +2,11 @@ import { useState } from "react"
 import cameras from "../CameraData"
 import { getUserID } from './../hooks/getUserID';
 import axios from 'axios';
+import { useCookies } from "react-cookie";
 
 export const InquiryModal = ({setShowConfirmation, cameraId, startDate, endDate, showModal, setShowModal, location}) => {
     const userID = getUserID()
+    const [cookies, _] = useCookies(["access_token"])
     const [cameraData, setCameraData] = useState(cameras)
     const [inquiry, setInquiry] = useState({
         firstname: "",
@@ -44,7 +46,9 @@ export const InquiryModal = ({setShowConfirmation, cameraId, startDate, endDate,
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post("https://ready-shoot.onrender.com/form-submission", {inquiry, userID})
+            const res = await axios.post("https://ready-shoot.onrender.com/form-submission", {inquiry, userID}, {
+                headers: { authorization: cookies.access_token}
+            })
             console.log(res);
             if (res.data.message = "success"){
                 setShowModal(false)

@@ -5,11 +5,27 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const UserModel = require("./models/Users")
 const InquiryModel = require("./models/Inquiries")
+import 'dotenv/config'
 
 const app = new express()
 
 app.use(express.json());
 app.use(cors());
+
+const verifyToken = (req, res, next) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        res.json({message: "No token provided"})
+    }
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET, (err) => {
+            if (err) return res.sendStatus(403)
+            next()
+        })
+    } else {
+        res.sendStatus(401)
+    }
+}
 
 //user
 app.post("/register", async (req,res) => {
@@ -55,7 +71,7 @@ app.get("/saves/:userID", async (req,res) => {
     }
 })
 
-app.put("/saves", async (req,res) => {
+app.put("/saves", verifyToken, async (req,res) => {
     try{
         const user = await UserModel.findById(req.body.userID)
         user.saves.push(req.body.cameraName)
@@ -66,7 +82,7 @@ app.put("/saves", async (req,res) => {
     }
 })
 
-app.put("/remove-save", async (req,res) => {
+app.put("/remove-save", verifyToken, async (req,res) => {
     try{
         const cameraName = req.body.cameraName
         const user = await UserModel.findById(req.body.userID)
@@ -82,7 +98,7 @@ app.put("/remove-save", async (req,res) => {
 })
 
 //inquiries
-app.post("/form-submission", async (req,res) => {
+app.post("/form-submission", verifyToken, async (req,res) => {
     const inquiry = new InquiryModel(req.body.inquiry)
     try {
         if (req.body.userID) {
@@ -97,7 +113,7 @@ app.post("/form-submission", async (req,res) => {
     }
 })
 
-app.get("/inquiries/:userID", async (req,res) => {
+app.get("/inquiries/:userID", verifyToken, async (req,res) => {
     try{
         const user = await UserModel.findById(req.params.userID)
         res.json(user.inquiries)
@@ -106,6 +122,6 @@ app.get("/inquiries/:userID", async (req,res) => {
     }
 })
 
-mongoose.connect("mongodb+srv://olivkylie:YHScZcW04vbkncXS@cluster.r702jxk.mongodb.net/Cluster?retryWrites=true&w=majority")
+mongoose.connect(process.env.MONGO_URI)
 
 app.listen(3000, () => console.log("server started"))

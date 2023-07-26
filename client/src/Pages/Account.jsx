@@ -31,7 +31,9 @@ export const Account = () => {
 
         const fetchInquiries = async () => {
             try {
-                const res = await axios.get(`https://ready-shoot.onrender.com/inquiries/${userID}`)
+                const res = await axios.get(`https://ready-shoot.onrender.com/inquiries/${userID}`, {
+                    headers: { authorization: cookies.access_token}
+                })
                 setInquiries(res.data)
             } catch (error) {
                 console.log(error);

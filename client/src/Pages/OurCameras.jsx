@@ -11,7 +11,6 @@ export const OurCameras = () => {
     const [cameraData, setCameraData] = useState(cameras)
     const [filterData, setFilterData] = useState(cameras)
     const [savedCameras, setSavedCameras] = useState([])
-
     const [cookies, _] = useCookies(["access_token"])
 
     const userID = getUserID()
@@ -33,7 +32,9 @@ export const OurCameras = () => {
             alert("Please login or create an account to start saving.")
         } else {
             try {
-                const res = await axios.put("https://ready-shoot.onrender.com/saves", {cameraName, userID})
+                const res = await axios.put("https://ready-shoot.onrender.com/saves", {cameraName, userID}, {
+                    headers: { authorization: cookies.access_token}
+                })
                 setSavedCameras(res.data.saves);
             } catch (error) {
                 console.log(error);
@@ -43,7 +44,9 @@ export const OurCameras = () => {
 
     const removeCamera = async (cameraName) => {
         try {
-            const res = await axios.put("https://ready-shoot.onrender.com/remove-save", {cameraName, userID})
+            const res = await axios.put("https://ready-shoot.onrender.com/remove-save", {cameraName, userID}, {
+                headers: { authorization: cookies.access_token}
+            })
             console.log(res.data);
             setSavedCameras(res.data.saves);
         } catch (error) {
