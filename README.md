@@ -23,6 +23,6 @@ MongoDB
 
 <h4>Project preview</h4>
 <p>Home page:</p>
-<img
+<img width="500" src="https://kylieoliver.com/localhost_5173_%20(1).png"/>
   
 </div>
