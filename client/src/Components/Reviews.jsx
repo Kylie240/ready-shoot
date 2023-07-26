@@ -3,8 +3,8 @@ export const Reviews = () => {
         <div className="py-8 lg:py-44 bg-stone-50 flex-col lg:flex justify-center items-center shadow-[inset_0_-8px_500px_rgba(120,120,120,0.3)]">
                 <div className="flex flex-col lg:gap-8">
                     <div className="text-center flex flex-col justify-center items-center">
-                        <p className="text-2xl font-medium">Real Reviews</p>
-                        <h5 className="text-[2.8rem] font-bold p-4">Customer Testimonials</h5>
+                        <p className="p-2 text-xl font-bold">Real Reviews</p>
+                        <h5 className="text-5xl font-bold p-4">Customer Testimonials</h5>
                         <p className="text-md text-stone-600 font-medium p-4 lg:w-2/5">Our customers have experienced our service and results, and they're eager to share their positive experiences with you.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 items-center">

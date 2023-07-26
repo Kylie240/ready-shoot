@@ -1,9 +1,9 @@
 export const Easy = () => {
     return (
-        <div className="px-8 pt-12 pb-28 flex justify-center items-center">
-                <div className="flex py-12 flex-col justify-between gap-12">
+        <div className="px-8 pt-10 pb-20 flex justify-center items-center">
+                <div className="flex py-12 flex-col justify-between gap-6">
                     <div className="text-center">
-                        <p className="p-2 text-2xl font-medium">Easy as 1, 2, 3</p>
+                        <p className="p-2 text-xl font-bold">Easy as 1, 2, 3</p>
                         <h5 className="p-2 text-5xl font-bold">Hassle free camera rentals</h5>
                     </div>
 

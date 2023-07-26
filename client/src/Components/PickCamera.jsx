@@ -10,7 +10,7 @@ export const PickCamera = () => {
     return (
         <div className="relative w-screen p-8 lg:mt-20 flex flex-col justify-center items-center gap-12">
                 <div className="text-center flex flex-col items-center justify-center">
-                <p className="text-2xl font-medium">Browse Our Selection of</p>
+                <p className="p-2 text-xl font-bold">Browse Our Selection of</p>
                     <h5 className="p-2 text-5xl font-bold">Quality Rental Cameras</h5>
                     <p className="w-4/5 mt-4">Choose from a variety of our amazing cameras to rent for your next photoshoot or video gig.</p>
                 </div>

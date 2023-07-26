@@ -31,12 +31,13 @@ export const OurCameras = () => {
     const saveCamera = async (cameraName) => {
         if (!userID) {
             alert("Please login or create an account to start saving.")
-        }
-        try {
-            const res = await axios.put("https://ready-shoot.onrender.com/saves", {cameraName, userID})
-            setSavedCameras(res.data.saves);
-        } catch (error) {
-            console.log(error);
+        } else {
+            try {
+                const res = await axios.put("https://ready-shoot.onrender.com/saves", {cameraName, userID})
+                setSavedCameras(res.data.saves);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
