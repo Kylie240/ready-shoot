@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const UserModel = require("./models/Users")
 const InquiryModel = require("./models/Inquiries")
-import 'dotenv/config'
+require('dotenv').config()
 
 const app = new express()
 
