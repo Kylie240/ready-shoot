@@ -123,7 +123,7 @@ export const Account = () => {
                                                 <p>{inquiry.firstname} {inquiry.lastname}</p>
                                             </div>
                                             <div>
-                                                <h6 className="font-semibold">Addres</h6>
+                                                <h6 className="font-semibold">Address</h6>
                                                 <p>{inquiry.address} {inquiry.lastname}</p>
                                             </div>
                                             <div>
